@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Generator</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel: Input Form -->
+    <div class="left-panel">
+      <div class="left-content">
+        <h1>What's in your pantry?</h1>
+        <div class="input-form">
+          <input type="text" id="ingredientInput" placeholder="Enter an ingredient" />
+          <div class="buttons">
+            <button onclick="addIngredient()">Add</button>
+            <button id="generateRecipeBtn" style="display: none;" onclick="fetchRecipes()">Generate Recipe</button>
+          </div>
+          <ul id="ingredientList"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- Right Panel: Generated Recipes -->
+    <div class="right-panel">
+      <div id="results"></div>
+      <!-- <img src="resources/kitchen.png" alt="" class="right-img"> -->
+    </div>
+  </div>
+
+  <!-- Recipe details modal -->
+  <div id="details" class="recipe-details" style="display: none;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

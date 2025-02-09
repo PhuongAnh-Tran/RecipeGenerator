@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root{
+  /* --light-color: #BBDFC5;
+  --dark-color:#60935D; */
+  
+  /* --light-color: #F1DABF;
+  --dark-color:#362417; */
+  
+  /* --light-color: #F4F1BB;
+  --dark-color:#F18805; */
+  
+  /* --light-color: #ACC12F;
+  --dark-color:#214E34; */
+  
+  /* --light-color: #EED7C5;
+  --dark-color:#C97C5D; */
+  
+  --light-color: #FFFBDB;
+  --dark-color:#307351;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  /* Container split into two panels (left & right) */
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Left Panel: Bold modern color and vertical centering */
+  .left-panel {
+    flex: 1;
+    background-color: var(--light-color); 
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    overflow-y: auto;
+  }
+  .left-content {
+    text-align: center;
+  }
+  .left-content h1 {
+    font-size: 2em;
+    margin-bottom: 10px; /* reduced margin so the form sits closer */
+  }
+  
+  /* Input form styling */
+  .input-form {
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 0; /* removed extra margin so it sits right below the title */
+  }
+  .input-form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 10px;
+  }
+  .input-form input[type="text"]:focus {
+    border-color: var(--dark-color);
+  }
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--dark-color);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .buttons button:hover {
+    background: var(--dark-color);
+  }
+  #ingredientList {
+    list-style: none;
+    margin-top: 10px;
+  }
+  #ingredientList li {
+    background: #f0f0f0;
+    color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #ingredientList li button {
+    background: var(--dark-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  /* Right Panel: Bold modern color for recipes with background image */
+  .right-panel {
+    flex: 1;
+    background-color: var(--dark-color); /* fallback color */
+    background-image: url("resources/kitchen.png");
+    background-repeat: no-repeat;
+    background-position: center; /* centers horizontally and vertically */
+    background-size: contain; /* or use 'cover' if you want the image to fill the panel */
+    color: #fff;
+    padding: 40px;
+    overflow-y: auto; /* enables scroll if content exceeds screen height */
+    position: relative; /* ensures that any absolutely positioned children are relative to this container */
+  }
+  
+  
+  /* Recipe results styling */
+  #results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .recipe-item {
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s;
+  }
+  .recipe-item:hover {
+    transform: translateY(-5px);
+  }
+  .recipe-item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* Recipe Button Styling (for "More Info") */
+  .recipe-item button {
+    background: var(--dark-color);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+  .recipe-item button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  /* Recipe details modal */
+  .recipe-details {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #333;
+    border: 3px solid var(--dark-color);
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 100;
+  }
+  
+  /* Recipe details modal - formatted instructions */
+  .recipe-details .instructions {
+    line-height: 1.5;
+    margin-top: 10px;
+    max-height: 300px;  /* adjust as needed */
+    overflow-y: auto;
+    white-space: pre-wrap; /* preserve whitespace and line breaks */
+  }
+  
+  /* Close Button Styling in the Recipe Details Modal */
+  .recipe-details button {
+    background: var(--dark-color);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+  .recipe-details button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
